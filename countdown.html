@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Righteous" rel="stylesheet">
     <title>Countdown</title>
 
-    <style>
-        #timer {
+    <style type="text/css">
+        .container {
             color: #efe9ae;
+            display: flex;
             text-align: center;
             text-transform: uppercase;
             font-family: 'Righteous', cursive;
-            font-size: .8em;
-            letter-spacing: 5px;
+            font-size: 3vw;
+            letter-spacing: .2em;
         }
 
         .days,
         .hours,
         .minutes,
         .seconds {
-            margin: 5 auto;
+            margin: 5;
             display: inline-block;
-            padding: 7px;
-            width: fit-content;
-            min-width: 100px;
+            padding: 0.2em;
+            min-width: 20vw;
+            max-width: fit-content;
             border-radius: 5px;
         }
 
@@ -45,18 +46,18 @@
         }
 
         .numbers {
+            color: #ffc300;
             font-family: 'Lato', sans-serif;
-            color: #ffca3a;
-            font-size: 5em;
-            text-align: center;
+            font-weight: 700;
+            font-size: 4em;
         }
     </style>
 </head>
 
 <body>
-    <div id="timer">
+    <div class="container">
         <div class="days">
-            <div id="days" class="numbers "> </div>days
+            <div id="days" class="numbers"> </div>days
         </div>
         <div class="hours">
             <div id="hours" class="numbers"> </div>hours
