@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Righteous" rel="stylesheet">
+    <title>Countdown</title>
+
+    <style type="text/css">
+        .container {
+            color: #efe9ae;
+            display: flex;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: 'Righteous', cursive;
+            font-size: 3vw;
+            letter-spacing: .2em;
+        }
+
+        .days,
+        .hours,
+        .minutes,
+        .seconds {
+            margin: 1%;
+            display: inline-block;
+            padding: .2em;
+            min-width: 20vw;
+            max-width: fit-content;
+            border-radius: 1em;
+        }
+
+        .days {
+            background: #6a4c93;
+        }
+
+        .hours {
+            background: #1982c4;
+        }
+
+        .minutes {
+            background: #8ac926;
+        }
+
+        .seconds {
+            background: #ff595e;
+        }
+
+        .numbers {
+            color: #ffc300;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 4em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="days">
+            <div id="days" class="numbers"> </div>days
+        </div>
+        <div class="hours">
+            <div id="hours" class="numbers"> </div>hours
+        </div>
+        <div class="minutes">
+            <div id="minutes" class="numbers"> </div>minutes
+        </div>
+        <div class="seconds">
+            <div id="seconds" class="numbers"> </div>seconds
+        </div>
+    </div>
+</body>
+
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Sep 17, 2023 00:00:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result
+        document.getElementById("days").innerHTML = days
+        document.getElementById("hours").innerHTML = hours
+        document.getElementById("minutes").innerHTML = minutes
+        document.getElementById("seconds").innerHTML = seconds
+
+        // If the count down is over
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("days").innerHTML = "EX";
+            document.getElementById("hours").innerHTML = "PI";
+            document.getElementById("minutes").innerHTML = "RE";
+            document.getElementById("seconds").innerHTML = "D";
+        }
+    }, 1000);
+</script>
+
+</html>
+
+<!-- Terinspirasi dari
+    - https://blog.shorouk.dev/notion-widgets-gallery/notion-widget-count-down/
+    - https://www.w3schools.com/howto/howto_js_countdown.asp -->
